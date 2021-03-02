@@ -22,15 +22,12 @@ function outer() {
   Invoke outer saving the return value into another variable called 'inner'.
 */
   
-// Code Here
-
+let inner = outer()
 
 
 //Once you do that, invoke inner.
 
-//Code Here
-
-
+inner()
 
 ////////// PROBLEM 2 //////////
 
@@ -51,8 +48,7 @@ function callFriend(name) {
   (HINT: You will need to pass in arguments to both function invocations)
 */
 
-//Code Here
-
+let callJake = callFriend('Jake', '555')
 
 
 ////////// PROBLEM 3 //////////
@@ -61,16 +57,20 @@ function callFriend(name) {
   Write a function called makeCounter that makes the following code work properly.
 */
 
-//Code Here
-
+function makeCounter(){
+  let count = 1
+  return function(){
+    return count++
+  }
+}
 
 
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+   var count = makeCounter();
+   count(); // 1
+   count(); // 2
+   count(); // 3
+   count(); // 4
 
 
 
@@ -89,15 +89,23 @@ function counterFactory(value) {
   // Code here.
 
   return {
+    inc: function(){
+       value++
+       return value
+    },
+    dec: function(){
+       value--
+       return value
+    }
 
   };
 }
 
 counter = counterFactory(10);
-// counter.inc() // 11
-// counter.inc() // 12
-// counter.inc() // 13
-// counter.dec() // 12
+ counter.inc() // 11
+ counter.inc() // 12
+ counter.inc() // 13
+ counter.dec() // 12
 
 
 
